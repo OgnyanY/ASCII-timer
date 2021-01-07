@@ -4,6 +4,21 @@
 #include <stdlib.h>
 using namespace std;
 
+// This function check data.
+int AskUser (int lower, int upper) {
+
+    int number;
+    cout << "Please insert seconds: ";
+    cin >> number;
+
+    if (number < lower || number > upper) {
+        return -1;
+    }
+
+return number;
+}
+
+//This function print the template.
 void Template (int min1, int min2, int min3, int sec1, int sec2) {
     char dots[11][3]= {//This is template for #.
                         {' ',' ',' '},
@@ -153,59 +168,56 @@ void Template (int min1, int min2, int min3, int sec1, int sec2) {
     };
     cout << "\n\n\n\n\n\n\n";//centration
     //This is for the print.
-    for (int i = 0; i < 11; i++){
-        for (int j = 0; j < 50; j++){
+    for (int i = 0; i < 11; i++) {
+        for (int j = 0; j < 50; j++) {
 
             if (j == 0) {
-
                 cout << setw(11);//
             }
-            if (j < 10){
+            if (j < 10) {
                 cout << temp[min1][i][j];
                 continue;
             }
-            if (j == 10){
+            if (j == 10) {
                 cout << ' ';
             }
-            if (j>=10 && j < 20){
+            if (j>=10 && j < 20) {
                 cout << temp[min2][i][j-10];
                 continue;
             }
-            if (j == 20){
+            if (j == 20) {
                 cout << ' ';
             }
-            if (j>=20 && j < 30){
+            if (j>=20 && j < 30) {
                 cout << temp[min3][i][j-20];
                 continue;
             }
             //This is when the minutes part is printed.
             //Here I print the dots part.
-            if (j == 30){
-                for (int k = 0; k < 3; k++){
+            if (j == 30) {
+                for (int k = 0; k < 3; k++) {
                     cout << dots[i][k];
                 }
             }
-            if (j>=30 && j < 40){
+            if (j>=30 && j < 40) {
                 cout << temp[sec1][i][j-30];
                 continue;
             }
             if (j == 40){
                 cout << ' ';
             }
-            if (j>=40 && j < 50){
+            if (j>=40 && j < 50) {
                 cout << temp[sec2][i][j-40];
                 continue;
             }
-
         }
         cout << endl;
     }
     cout << "\n\n\n\n\n\n\n";//centration
-
 }
 
-
-void Timer (int number){
+//This function set the timer.
+void Timer (int number) {
 
     int const SEC_PER_MIN = 60;
     int const SECONDS_AFTER = 59;
@@ -230,16 +242,20 @@ void Timer (int number){
             sleep(1);//this make the program to wait 1 second
         }
         seconds = SECONDS_AFTER;
-
     }
     cout <<'\a';
 }
 
 int main()
 {
-    int number = 0;
-    cout << "Please insert seconds: ";
-    cin >> number;
+    int const MIN_SECONDS = 1000;
+    int const MAX_SECONDS = 9999;
+
+    int number = AskUser(MIN_SECONDS, MAX_SECONDS);
+    if(number == -1) {
+        cout << "Please insert four digit number for seconds." << endl;
+        return 0;
+    }
 
     Timer (number);
 
