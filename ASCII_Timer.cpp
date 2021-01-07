@@ -35,11 +35,11 @@ void Template (int min1, int min2, int min3, int sec1, int sec2) {
                     },
                     {//This is template for 1.
                         {' ',' ',' ',' ',' ',' ',' ',' ',' ','1'},
-                        {' ',' ',' ',' ',' ',' ',' ',' ','1','1'},
-                        {' ',' ',' ',' ',' ',' ',' ','1',' ','1'},
-                        {' ',' ',' ',' ',' ',' ','1',' ',' ','1'},
-                        {' ',' ',' ',' ',' ','1',' ',' ',' ','1'},
-                        {' ',' ',' ',' ','1',' ',' ',' ',' ','1'},
+                        {' ',' ',' ',' ',' ',' ',' ',' ',' ','1'},
+                        {' ',' ',' ',' ',' ',' ',' ',' ',' ','1'},
+                        {' ',' ',' ',' ',' ',' ',' ',' ',' ','1'},
+                        {' ',' ',' ',' ',' ',' ',' ',' ',' ','1'},
+                        {' ',' ',' ',' ',' ',' ',' ',' ',' ','1'},
                         {' ',' ',' ',' ',' ',' ',' ',' ',' ','1'},
                         {' ',' ',' ',' ',' ',' ',' ',' ',' ','1'},
                         {' ',' ',' ',' ',' ',' ',' ',' ',' ','1'},
@@ -208,45 +208,29 @@ void Template (int min1, int min2, int min3, int sec1, int sec2) {
 void Timer (int number){
 
     int const SEC_PER_MIN = 60;
-    int minute = number / SEC_PER_MIN,
-        second = number % SEC_PER_MIN;
+    int const SECONDS_AFTER = 59;
+    int minutes = number / SEC_PER_MIN,
+        seconds = number % SEC_PER_MIN;
 
     int minArr[3] = {0}, secArr[2] = {0};
 
-    bool firstSeconds = 0;//This is flag for the first seconds.
-    for (int i = minute; i >= 0; i--) {
-        //This is for the first seconds.
-        if (firstSeconds == 0){
-            for (int k = second; k >= 0; k--) {
+    for (int i = minutes; i >= 0; i--) {
+        //The first scroll of this loop is for the first seconds.
+        for (int k = seconds; k >= 0; k--) {
 
-                minArr[2] = i % 10;
-                minArr[1] = (i / 10) % 10;
-                minArr[0] = i / 100;
+            minArr[2] = i % 10;
+            minArr[1] = (i / 10) % 10;
+            minArr[0] = i / 100;
 
-                secArr[1] = k % 10;
-                secArr[0] = (k / 10) % 10;
+            secArr[1] = k % 10;
+            secArr[0] = (k / 10) % 10;
 
-                system ("CLS");//this clean the screen
-                Template (minArr[0], minArr[1],minArr[2], secArr[0], secArr[1]);
-                sleep(1);//this make the program to wait 1 second
-            }
-            firstSeconds = 1;
+            system ("CLS");//this clean the screen
+            Template (minArr[0], minArr[1],minArr[2], secArr[0], secArr[1]);
+            sleep(1);//this make the program to wait 1 second
         }
-        else {
-            for (int j = 59; j >= 0; j--) {
+        seconds = SECONDS_AFTER;
 
-                minArr[2] = i % 10;
-                minArr[1] = (i / 10) % 10;
-                minArr[0] = i / 100;
-
-                secArr[1] = j % 10;
-                secArr[0] = (j / 10) % 10;
-
-                system ("CLS");//this clean the screen
-                Template (minArr[0], minArr[1],minArr[2], secArr[0], secArr[1]);
-                sleep(1);//this make the program to wait 1 second
-            }
-        }
     }
     cout <<'\a';
 }
