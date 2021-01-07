@@ -166,13 +166,13 @@ void Template (int min1, int min2, int min3, int sec1, int sec2) {
                         {'9','9','9','9','9','9','9','9','9','9'}
                     }
     };
-    cout << "\n\n\n\n\n\n\n";//centration
+    cout << "\n\n\n\n\n\n\n\n";//centration
     //This is for the print.
     for (int i = 0; i < 11; i++) {
         for (int j = 0; j < 50; j++) {
 
             if (j == 0) {
-                cout << setw(11);//
+                cout << setw(12);//
             }
             if (j < 10) {
                 cout << temp[min1][i][j];
@@ -238,12 +238,18 @@ void Timer (int number) {
             secArr[0] = (k / 10) % 10;
 
             system ("CLS");//this clean the screen
+
+            if (minArr[2] == 0 && minArr[1] == 0 && minArr[0] == 0 && secArr[1] == 0 && secArr[0] == 0) {
+                cout <<'\a';
+            }
+
             Template (minArr[0], minArr[1],minArr[2], secArr[0], secArr[1]);
             sleep(1);//this make the program to wait 1 second
         }
         seconds = SECONDS_AFTER;
     }
-    cout <<'\a';
+
+
 }
 
 int main()
