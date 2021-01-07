@@ -156,6 +156,7 @@ void Template (int min1, int min2, int min3, int sec1, int sec2) {
                         {'9','9','9','9','9','9','9','9','9','9'}
                     }
     };
+    cout << "\n\n\n\n\n\n\n";
     for (int i = 0; i < 11; i++){
         for (int j = 0; j < 50; j++){
 
@@ -201,6 +202,7 @@ void Template (int min1, int min2, int min3, int sec1, int sec2) {
         }
         cout << endl;
     }
+    cout << "\n\n\n\n\n\n\n";
 
 }
 
@@ -216,7 +218,7 @@ int main()
 
     int minArr[3] = {0}, secArr[2] = {0};
 
-    /*bool flag = 0;
+    bool flag = 0;
     for (int i = minute; i >= 0; i--) {
         if (flag == 0){
             for (int k = second; k >= 0; k--) {
@@ -237,7 +239,8 @@ int main()
                 else {
                     secArr[0] = (k / 10) % 10;
                 }
-                system ("CLS");
+                //system ("CLS");
+                ClearScreen();
                 Template (minArr[0], minArr[1],minArr[2], secArr[0], secArr[1]);
                 sleep(1);
             }
@@ -263,15 +266,14 @@ int main()
                     secArr[0] = (j / 10) % 10;
                 }
 
-                system ("CLS");
-                sleep(1);
+                //system ("CLS");
+                ClearScreen();
                 Template (minArr[0], minArr[1],minArr[2], secArr[0], secArr[1]);
-
+                sleep(1);
             }
 
         }
-    }*/
-    Template (1, 2, 3, 4, 5);
+    }
     cout <<'\a';
 
     return 0;
