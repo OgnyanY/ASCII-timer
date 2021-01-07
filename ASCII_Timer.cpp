@@ -1,16 +1,11 @@
 #include <iostream>
 #include <iomanip>
 #include <unistd.h>
-#include <string>
 #include <stdlib.h>
 using namespace std;
 
-void ClearScreen() {
-    cout << string( 100, '\n' );
-}
-
 void Template (int min1, int min2, int min3, int sec1, int sec2) {
-    char dots[11][3]= {//0
+    char dots[11][3]= {//This is template for #.
                         {' ',' ',' '},
                         {' ',' ',' '},
                         {' ',' ',' '},
@@ -25,7 +20,7 @@ void Template (int min1, int min2, int min3, int sec1, int sec2) {
     };
 
     char temp[10][11][10] = {
-                    {//0
+                    {//This is template for 0.
                         {'0','0','0','0','0','0','0','0','0','0'},
                         {'0',' ',' ',' ',' ',' ',' ',' ',' ','0'},
                         {'0',' ',' ',' ',' ',' ',' ',' ',' ','0'},
@@ -38,20 +33,20 @@ void Template (int min1, int min2, int min3, int sec1, int sec2) {
                         {'0',' ',' ',' ',' ',' ',' ',' ',' ','0'},
                         {'0','0','0','0','0','0','0','0','0','0'}
                     },
-                    {//1
+                    {//This is template for 1.
                         {' ',' ',' ',' ',' ',' ',' ',' ',' ','1'},
-                        {' ',' ',' ',' ',' ',' ',' ',' ',' ','1'},
-                        {' ',' ',' ',' ',' ',' ',' ',' ',' ','1'},
-                        {' ',' ',' ',' ',' ',' ',' ',' ',' ','1'},
-                        {' ',' ',' ',' ',' ',' ',' ',' ',' ','1'},
-                        {' ',' ',' ',' ',' ',' ',' ',' ',' ','1'},
+                        {' ',' ',' ',' ',' ',' ',' ',' ','1','1'},
+                        {' ',' ',' ',' ',' ',' ',' ','1',' ','1'},
+                        {' ',' ',' ',' ',' ',' ','1',' ',' ','1'},
+                        {' ',' ',' ',' ',' ','1',' ',' ',' ','1'},
+                        {' ',' ',' ',' ','1',' ',' ',' ',' ','1'},
                         {' ',' ',' ',' ',' ',' ',' ',' ',' ','1'},
                         {' ',' ',' ',' ',' ',' ',' ',' ',' ','1'},
                         {' ',' ',' ',' ',' ',' ',' ',' ',' ','1'},
                         {' ',' ',' ',' ',' ',' ',' ',' ',' ','1'},
                         {' ',' ',' ',' ',' ',' ',' ',' ',' ','1'}
                     },
-                    {//2
+                    {//This is template for 2.
                         {'2','2','2','2','2','2','2','2','2','2'},
                         {' ',' ',' ',' ',' ',' ',' ',' ',' ','2'},
                         {' ',' ',' ',' ',' ',' ',' ',' ',' ','2'},
@@ -64,7 +59,7 @@ void Template (int min1, int min2, int min3, int sec1, int sec2) {
                         {'2',' ',' ',' ',' ',' ',' ',' ',' ',' '},
                         {'2','2','2','2','2','2','2','2','2','2'}
                     },
-                    {//3
+                    {//This is template for 3.
                         {'3','3','3','3','3','3','3','3','3','3'},
                         {' ',' ',' ',' ',' ',' ',' ',' ',' ','3'},
                         {' ',' ',' ',' ',' ',' ',' ',' ',' ','3'},
@@ -77,7 +72,7 @@ void Template (int min1, int min2, int min3, int sec1, int sec2) {
                         {' ',' ',' ',' ',' ',' ',' ',' ',' ','3'},
                         {'3','3','3','3','3','3','3','3','3','3'}
                     },
-                    {//4
+                    {//This is template for 4.
                         {'4',' ',' ',' ',' ',' ',' ',' ',' ','4'},
                         {'4',' ',' ',' ',' ',' ',' ',' ',' ','4'},
                         {'4',' ',' ',' ',' ',' ',' ',' ',' ','4'},
@@ -90,7 +85,7 @@ void Template (int min1, int min2, int min3, int sec1, int sec2) {
                         {' ',' ',' ',' ',' ',' ',' ',' ',' ','4'},
                         {' ',' ',' ',' ',' ',' ',' ',' ',' ','4'}
                     },
-                    {//5
+                    {//This is template for 5.
                         {'5','5','5','5','5','5','5','5','5','5'},
                         {'5',' ',' ',' ',' ',' ',' ',' ',' ',' '},
                         {'5',' ',' ',' ',' ',' ',' ',' ',' ',' '},
@@ -103,7 +98,7 @@ void Template (int min1, int min2, int min3, int sec1, int sec2) {
                         {' ',' ',' ',' ',' ',' ',' ',' ',' ','5'},
                         {'5','5','5','5','5','5','5','5','5','5'}
                     },
-                    {//6
+                    {//This is template for 6.
                         {'6','6','6','6','6','6','6','6','6','6'},
                         {'6',' ',' ',' ',' ',' ',' ',' ',' ',' '},
                         {'6',' ',' ',' ',' ',' ',' ',' ',' ',' '},
@@ -116,20 +111,20 @@ void Template (int min1, int min2, int min3, int sec1, int sec2) {
                         {'6',' ',' ',' ',' ',' ',' ',' ',' ','6'},
                         {'6','6','6','6','6','6','6','6','6','6'}
                     },
-                    {//7
+                    {//This is template for 7.
                         {'7','7','7','7','7','7','7','7','7','7'},
-                        {' ',' ',' ',' ',' ',' ',' ',' ',' ','7'},
-                        {' ',' ',' ',' ',' ',' ',' ',' ',' ','7'},
-                        {' ',' ',' ',' ',' ',' ',' ',' ',' ','7'},
-                        {' ',' ',' ',' ',' ',' ',' ',' ',' ','7'},
-                        {' ',' ',' ',' ',' ',' ',' ',' ',' ','7'},
-                        {' ',' ',' ',' ',' ',' ',' ',' ',' ','7'},
-                        {' ',' ',' ',' ',' ',' ',' ',' ',' ','7'},
-                        {' ',' ',' ',' ',' ',' ',' ',' ',' ','7'},
-                        {' ',' ',' ',' ',' ',' ',' ',' ',' ','7'},
-                        {' ',' ',' ',' ',' ',' ',' ',' ',' ','7'}
+                        {' ',' ',' ',' ',' ',' ',' ',' ','7','7'},
+                        {' ',' ',' ',' ',' ',' ',' ',' ','7',' '},
+                        {' ',' ',' ',' ',' ',' ',' ','7',' ',' '},
+                        {' ',' ',' ',' ',' ',' ','7',' ',' ',' '},
+                        {' ',' ',' ',' ',' ','7',' ',' ',' ',' '},
+                        {' ',' ',' ',' ','7',' ',' ',' ',' ',' '},
+                        {' ',' ',' ','7',' ',' ',' ',' ',' ',' '},
+                        {' ',' ','7',' ',' ',' ',' ',' ',' ',' '},
+                        {' ','7',' ',' ',' ',' ',' ',' ',' ',' '},
+                        {'7',' ',' ',' ',' ',' ',' ',' ',' ',' '}
                     },
-                    {//8
+                    {//This is template for 8.
                         {'8','8','8','8','8','8','8','8','8','8'},
                         {'8',' ',' ',' ',' ',' ',' ',' ',' ','8'},
                         {'8',' ',' ',' ',' ',' ',' ',' ',' ','8'},
@@ -142,7 +137,7 @@ void Template (int min1, int min2, int min3, int sec1, int sec2) {
                         {'8',' ',' ',' ',' ',' ',' ',' ',' ','8'},
                         {'8','8','8','8','8','8','8','8','8','8'}
                     },
-                    {//9
+                    {//This is template for 9.
                         {'9','9','9','9','9','9','9','9','9','9'},
                         {'9',' ',' ',' ',' ',' ',' ',' ',' ','9'},
                         {'9',' ',' ',' ',' ',' ',' ',' ',' ','9'},
@@ -156,13 +151,14 @@ void Template (int min1, int min2, int min3, int sec1, int sec2) {
                         {'9','9','9','9','9','9','9','9','9','9'}
                     }
     };
-    cout << "\n\n\n\n\n\n\n";
+    cout << "\n\n\n\n\n\n\n";//centration
+    //This is for the print.
     for (int i = 0; i < 11; i++){
         for (int j = 0; j < 50; j++){
 
             if (j == 0) {
 
-                cout << setw(11);
+                cout << setw(11);//
             }
             if (j < 10){
                 cout << temp[min1][i][j];
@@ -182,6 +178,8 @@ void Template (int min1, int min2, int min3, int sec1, int sec2) {
                 cout << temp[min3][i][j-20];
                 continue;
             }
+            //This is when the minutes part is printed.
+            //Here I print the dots part.
             if (j == 30){
                 for (int k = 0; k < 3; k++){
                     cout << dots[i][k];
@@ -202,79 +200,64 @@ void Template (int min1, int min2, int min3, int sec1, int sec2) {
         }
         cout << endl;
     }
-    cout << "\n\n\n\n\n\n\n";
+    cout << "\n\n\n\n\n\n\n";//centration
 
 }
 
-int main()
-{
+
+void Timer (int number){
+
     int const SEC_PER_MIN = 60;
-    int number = 0;
-    cin >> number;
-
-    int minute = number / SEC_PER_MIN, second = number % SEC_PER_MIN;
-    cout << minute << " " << second << endl;
-
+    int minute = number / SEC_PER_MIN,
+        second = number % SEC_PER_MIN;
 
     int minArr[3] = {0}, secArr[2] = {0};
 
-    bool flag = 0;
+    bool firstSeconds = 0;//This is flag for the first seconds.
     for (int i = minute; i >= 0; i--) {
-        if (flag == 0){
+        //This is for the first seconds.
+        if (firstSeconds == 0){
             for (int k = second; k >= 0; k--) {
 
                 minArr[2] = i % 10;
-                if (i < 10) {
-                minArr[1] = 0;
-                }
-                else {
-                    minArr[1] = (i / 10) % 10;
-                }
+                minArr[1] = (i / 10) % 10;
                 minArr[0] = i / 100;
 
                 secArr[1] = k % 10;
-                if (k < 10) {
-                    secArr[0] = 0;
-                }
-                else {
-                    secArr[0] = (k / 10) % 10;
-                }
-                //system ("CLS");
-                ClearScreen();
+                secArr[0] = (k / 10) % 10;
+
+                system ("CLS");//this clean the screen
                 Template (minArr[0], minArr[1],minArr[2], secArr[0], secArr[1]);
-                sleep(1);
+                sleep(1);//this make the program to wait 1 second
             }
-            flag = 1;
+            firstSeconds = 1;
         }
         else {
             for (int j = 59; j >= 0; j--) {
 
                 minArr[2] = i % 10;
-                if (i < 10) {
-                minArr[1] = 0;
-                }
-                else {
-                    minArr[1] = (i / 10) % 10;
-                }
+                minArr[1] = (i / 10) % 10;
                 minArr[0] = i / 100;
 
                 secArr[1] = j % 10;
-                if (j < 10) {
-                    secArr[0] = 0;
-                }
-                else {
-                    secArr[0] = (j / 10) % 10;
-                }
+                secArr[0] = (j / 10) % 10;
 
-                //system ("CLS");
-                ClearScreen();
+                system ("CLS");//this clean the screen
                 Template (minArr[0], minArr[1],minArr[2], secArr[0], secArr[1]);
-                sleep(1);
+                sleep(1);//this make the program to wait 1 second
             }
-
         }
     }
     cout <<'\a';
+}
+
+int main()
+{
+    int number = 0;
+    cout << "Please insert seconds: ";
+    cin >> number;
+
+    Timer (number);
 
     return 0;
 }
