@@ -17,7 +17,7 @@
 #include <iostream>
 #include <iomanip>
 #include <unistd.h>
-#include <stdlib.h>
+
 using namespace std;
 
 // This function check data.
